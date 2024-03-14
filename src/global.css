@@ -11,10 +11,11 @@
     margin: 0 auto;
 }
 
-.inputRepos {
-    margin-top: 8px;
-    margin: 0 auto;
-    border: 2px solid #000;
+.inputApp {
+    margin: 8px 8px;
+    border: 1px solid #111;
+    background-color: var(--corPrincipal);
+    color: #fff;
 }
 
 :root {
