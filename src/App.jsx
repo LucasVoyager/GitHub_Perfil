@@ -4,6 +4,8 @@ import Perfil from "./components/Perfil";
 
 import ReposList from "./components/ReposList";
 
+import './global.css';
+
 
 function App() {
   const [formularioVisivel, setFormularioEstaVisivel] = useState();
