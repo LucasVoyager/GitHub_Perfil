@@ -5,17 +5,36 @@ import styles from "./ReposList.module.css"
 const ReposList = ({ nomeUsuario}) => {
     const [repos, setRepos] = useState([]);
     const [estaCarregando, setEstaCarregando] = useState(true);
+    const [erro, setErro] = useState(null);
     useEffect(() => {
+        if (!nomeUsuario) {
+            setEstaCarregando(false);
+            return;
+        }
+
         setEstaCarregando(true)
         fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
-        .then(res => res.json())
+        .then(res =>{
+            if (!res.ok) {
+                throw new Error('Falha ao tentar pegar o repositorio')
+            }
+            return res.json()
+        })
         .then(resJson => {
             setTimeout(() => {
                 setEstaCarregando(false);
                 setRepos(resJson)
             }, 3000)
         })
+        .catch(error => {
+            setEstaCarregando(false);
+            setErro(error.message);
+        })
     }, [nomeUsuario])
+
+    if (erro) {
+        return <>Erro: {erro}</>
+    }
 
 
     return (
