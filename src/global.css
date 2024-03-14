@@ -11,7 +11,14 @@
     margin: 0 auto;
 }
 
+.inputRepos {
+    margin-top: 8px;
+    margin: 0 auto;
+    border: 2px solid #000;
+}
+
 :root {
     --corPrincipal: #7f8c8d;
     --corSecundaria: #111;
 }
+

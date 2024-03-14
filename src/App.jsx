@@ -4,12 +4,14 @@ import Perfil from "./components/Perfil";
 
 import ReposList from "./components/ReposList";
 
+import styles from "./global.css";
+
 function App() {
   const [formularioVisivel, setFormularioEstaVisivel] = useState();
   const [nomeUsuario, setNomeUsuario] = useState('');
   return (
     <>
-      <input type="text" onBlur={(e) => setNomeUsuario(e.target.value)} />
+      <input className={styles.inputRepos} type="text" onBlur={(e) => setNomeUsuario(e.target.value)} />
 
       {nomeUsuario.length > 4 && (
         <>
